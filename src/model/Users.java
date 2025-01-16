@@ -12,7 +12,7 @@ import jakarta.persistence.Entity;
 @Entity
 public class Users implements java.io.Serializable {
 	
-	private static final long serialVersionUID = 7839201L;
+	private static final long serialVersionUID = -46535005703444963L;
 
 	private int id;
 	private Tipos tipos;
@@ -26,10 +26,6 @@ public class Users implements java.io.Serializable {
 	private Integer telefono1;
 	private Integer telefono2;
 	private byte[] argazkia;
-	private Set matriculacioneses = new HashSet(0);
-	private Set reunionesesForProfesorId = new HashSet(0);
-	private Set reunionesesForAlumnoId = new HashSet(0);
-	private Set horarioses = new HashSet(0);
 
 	public Users() {
 	}
@@ -54,10 +50,6 @@ public class Users implements java.io.Serializable {
 		this.telefono1 = telefono1;
 		this.telefono2 = telefono2;
 		this.argazkia = argazkia;
-		this.matriculacioneses = matriculacioneses;
-		this.reunionesesForProfesorId = reunionesesForProfesorId;
-		this.reunionesesForAlumnoId = reunionesesForAlumnoId;
-		this.horarioses = horarioses;
 	}
 
 	public int getId() {
@@ -154,38 +146,6 @@ public class Users implements java.io.Serializable {
 
 	public void setArgazkia(byte[] argazkia) {
 		this.argazkia = argazkia;
-	}
-
-	public Set getMatriculacioneses() {
-		return this.matriculacioneses;
-	}
-
-	public void setMatriculacioneses(Set matriculacioneses) {
-		this.matriculacioneses = matriculacioneses;
-	}
-
-	public Set getReunionesesForProfesorId() {
-		return this.reunionesesForProfesorId;
-	}
-
-	public void setReunionesesForProfesorId(Set reunionesesForProfesorId) {
-		this.reunionesesForProfesorId = reunionesesForProfesorId;
-	}
-
-	public Set getReunionesesForAlumnoId() {
-		return this.reunionesesForAlumnoId;
-	}
-
-	public void setReunionesesForAlumnoId(Set reunionesesForAlumnoId) {
-		this.reunionesesForAlumnoId = reunionesesForAlumnoId;
-	}
-
-	public Set getHorarioses() {
-		return this.horarioses;
-	}
-
-	public void setHorarioses(Set horarioses) {
-		this.horarioses = horarioses;
 	}
 	
 	@Override
