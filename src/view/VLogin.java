@@ -76,6 +76,7 @@ public class VLogin extends JFrame {
 		btnLogin = new JButton("Login");
 		btnLogin.setBounds(329, 405, 127, 40);
 		btnLogin.setBackground(Color.BLUE);
+		btnLogin.setFocusPainted(false);
 		btnLogin.setForeground(Color.WHITE);
 		btnLogin.setFont(new Font("Arial", Font.BOLD, 17));
 		contentPane.add(btnLogin);
