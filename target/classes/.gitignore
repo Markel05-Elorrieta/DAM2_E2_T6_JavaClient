@@ -1,5 +1,5 @@
-/controller/
-/META-INF/
+/global/
 /model/
 /view/
-/global/
+/controller/
+/META-INF/

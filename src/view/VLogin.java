@@ -3,6 +3,7 @@ package view;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
@@ -39,6 +40,10 @@ public class VLogin extends JFrame {
 		btnLogin = new JButton("Login");
 		btnLogin.setBounds(97, 144, 89, 23);
 		contentPane.add(btnLogin);
+	}
+	
+	public void showInfoMessage (String msg) {
+		JOptionPane.showMessageDialog(null, msg);
 	}
 	
 	public JTextField getTxtEmail() {
