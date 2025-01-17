@@ -31,7 +31,6 @@ public class CLogin {
 		
 		btnLogin.addActionListener(e -> {
 			boolean isUser = mLogin.checkLogin(txtEmail.getText(), txtPassword.getText());
-			
 			if (isUser) {
 				CMenu cMenu = new CMenu();
 			} else {

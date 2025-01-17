@@ -18,7 +18,7 @@ public class App {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		/*
 		try {
 			Socket socket = new Socket("10.5.104.43", 23456);
 			System.out.println("Connected to server!");
@@ -36,8 +36,8 @@ public class App {
 			
 			} catch (Exception e) {
 			e.printStackTrace();
-		}
-		
+			}
+		*/
 		CLogin cLogin = new CLogin();		
 	}
 

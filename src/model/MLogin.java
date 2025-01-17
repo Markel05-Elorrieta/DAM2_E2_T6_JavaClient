@@ -29,28 +29,29 @@ public class MLogin {
 			
 			ois = new ObjectInputStream(socket.getInputStream());
 			
-			pw.println("loginAndroid/" + email + "/" + password);
+			pw.println("loginJava/" + email + "/" + password);
 			
 			System.out.println("Petición enviada al servidor");
 						
 			Users response = (Users) ois.readObject();			
 			
+		    
 			ois.close();
 			pw.close();
 			server.close();
 			
-			if (response != null) {
-				GlobalVariables.loggedUser = response;
-				
-				return true;
-			}			
+			if (response == null) {
+				return false;
+			}		
+			GlobalVariables.loggedUser = response;
+			return true;
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return false;
+
 	}
 }

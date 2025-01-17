@@ -1,13 +1,25 @@
 package controller;
 
+import java.util.ArrayList;
+
+import model.GlobalVariables;
+import model.Horarios;
+import model.MOrdutegiaKontsultatu;
 import view.VOrdutegiaKontsultatu;
 
 public class COrdutegiaKontsultatu {
 	
 	private VOrdutegiaKontsultatu vOrdutegiaKontsult;
+	private MOrdutegiaKontsultatu mOrdutegiaKontsult;
+	
+	private ArrayList<Horarios> horariosList;
 	
 	public COrdutegiaKontsultatu() {
-		vOrdutegiaKontsult = new VOrdutegiaKontsultatu();
+		
+		mOrdutegiaKontsult = new MOrdutegiaKontsultatu();
+		horariosList = mOrdutegiaKontsult.getHorariosByIrakasleId(GlobalVariables.loggedUser.getId());
+		
+		vOrdutegiaKontsult = new VOrdutegiaKontsultatu(horariosList);
 		vOrdutegiaKontsult.setVisible(true);
 		
 		start();
