@@ -2,6 +2,8 @@ package controller;
 
 import java.util.ArrayList;
 
+import javax.swing.JButton;
+
 import model.GlobalVariables;
 import model.Horarios;
 import model.MOrdutegiaKontsultatu;
@@ -31,6 +33,11 @@ public class COrdutegiaKontsultatu {
 	}
 	
 	private void setListeners() {
-
+		JButton btnLogout = vOrdutegiaKontsult.getBtnLogout();
+		
+		btnLogout.addActionListener(e -> {
+			vOrdutegiaKontsult.dispose();
+			CMenu cMenu = new CMenu();
+		});
 	}
 }

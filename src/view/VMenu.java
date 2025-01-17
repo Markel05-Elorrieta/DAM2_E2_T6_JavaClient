@@ -3,6 +3,7 @@ package view;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -18,6 +19,7 @@ public class VMenu extends JFrame {
 	private JButton btnOrdutegiaKontsultatu;
 	private JButton btnBesteOrdutegiaKontsultatu;
 	private JButton btnBilerakKontsultatu;
+	private JButton btnLogout;
 
 	public VMenu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,8 +41,12 @@ public class VMenu extends JFrame {
 		btnBilerakKontsultatu = new JButton("btnBilerakKontsultatu");
 		btnBilerakKontsultatu.setBounds(55, 110, 181, 23);
 		contentPane.add(btnBilerakKontsultatu);
+		
+		btnLogout = new JButton("btnLogout");
+		btnLogout.setBounds(179, 205, 89, 23);
+		contentPane.add(btnLogout);
 	}
-
+	
 	public JButton getBtnOrdutegiaKontsultatu() {
 		return btnOrdutegiaKontsultatu;
 	}
@@ -53,4 +59,7 @@ public class VMenu extends JFrame {
 		return btnBilerakKontsultatu;
 	}
 	
+	public JButton getBtnLogout() {
+		return btnLogout;
+	}
 }

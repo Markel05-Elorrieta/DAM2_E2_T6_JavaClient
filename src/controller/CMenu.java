@@ -25,17 +25,26 @@ public class CMenu {
 		JButton btnOrdutegiaKontsultatu = vMenu.getBtnOrdutegiaKontsultatu();
 		JButton btnBesteOrdutegiaKontsultatu = vMenu.getBtnBesteOrdutegiaKontsultatu();
 		JButton btnBilerakKontsultatu = vMenu.getBtnBilerakKontsultatu();
+		JButton btnLogout = vMenu.getBtnLogout();
 		
 		btnOrdutegiaKontsultatu.addActionListener(e -> {
+			vMenu.dispose();
 			COrdutegiaKontsultatu cOrdutegiaKontsultatu = new COrdutegiaKontsultatu();
 		});
 		
 		btnBesteOrdutegiaKontsultatu.addActionListener(e -> {
-			System.out.println("Beste Ordutegia Kontsultatu");
+			vMenu.dispose();
+			CBesteOrdutegiaKontsultatu cBesteOrdutegiaKontsultatu = new CBesteOrdutegiaKontsultatu();
 		});
 		
 		btnBilerakKontsultatu.addActionListener(e -> {
-			System.out.println("Bilerak Kontsultatu");
+			vMenu.dispose();
+			CBilerakKontsultatu cBilerakKontsultatu = new CBilerakKontsultatu();
+		});
+		
+		btnLogout.addActionListener(e -> {
+			vMenu.dispose();
+			CLogin cLogin = new CLogin();
 		});
 	}
 	

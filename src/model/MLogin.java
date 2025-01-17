@@ -23,7 +23,7 @@ public class MLogin {
 	}
 	
 	public boolean checkLogin(String email, String password) {
-		try {
+		try {			
 			socket = server.connect();
 			pw = new PrintWriter(socket.getOutputStream(), true);
 			
@@ -54,7 +54,6 @@ public class MLogin {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;

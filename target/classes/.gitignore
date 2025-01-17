@@ -1,3 +1,11 @@
+<<<<<<< HEAD
 /view/
 /global/
 /images/
+=======
+/global/
+/model/
+/view/
+/controller/
+/META-INF/
+>>>>>>> 51989a49d39a41990bbc9bbf657cb3faa3c4cf88
