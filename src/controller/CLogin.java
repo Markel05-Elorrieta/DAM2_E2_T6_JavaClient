@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import model.MLogin;
+import model.Utilities;
 import view.VLogin;
 
 public class CLogin {
@@ -32,6 +33,7 @@ public class CLogin {
 		btnLogin.addActionListener(e -> {
 			boolean isUser = mLogin.checkLogin(txtEmail.getText(), txtPassword.getText());
 			if (isUser) {
+				this.vLogin.dispose();
 				CMenu cMenu = new CMenu();
 			} else {
 				System.out.println("Usuario no logeado");

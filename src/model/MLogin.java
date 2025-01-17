@@ -29,7 +29,13 @@ public class MLogin {
 			
 			ois = new ObjectInputStream(socket.getInputStream());
 			
-			pw.println("loginJava/" + email + "/" + password);
+			/*
+			Utilities u = new Utilities();
+			byte[] hashedPwd = u.encrypt(password);
+			*/
+			String toSend = "loginJava/" + email + "/" + password;
+			System.out.println(toSend);
+			pw.println(toSend);
 			
 			System.out.println("Petición enviada al servidor");
 						
@@ -52,6 +58,5 @@ public class MLogin {
 			e.printStackTrace();
 		}
 		return false;
-
 	}
 }
