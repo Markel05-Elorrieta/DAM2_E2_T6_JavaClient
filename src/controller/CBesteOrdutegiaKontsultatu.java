@@ -1,17 +1,34 @@
 package controller;
 
-import javax.swing.JButton;
+import java.util.ArrayList;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+
+import model.GlobalVariables;
+import model.Horarios;
+import model.MBesteOrdutegiaKontsultatu;
+import model.Users;
+import model.view.TableUtils;
 import view.VBesteOrdutegiaKontsultatu;
 
 public class CBesteOrdutegiaKontsultatu {
 	
-	private VBesteOrdutegiaKontsultatu vBesteOrdutegiaKontsultatu;
+	private VBesteOrdutegiaKontsultatu vBesteOrdutegiaKontsult;
+	private MBesteOrdutegiaKontsultatu mBesteOrdutegiaKontsult;
+	private TableUtils tableUtils = new TableUtils();
+	
+	private ArrayList<Horarios> horariosList;
+	private ArrayList<Users> irakasleak;
 	
 	public CBesteOrdutegiaKontsultatu() {
-		vBesteOrdutegiaKontsultatu = new VBesteOrdutegiaKontsultatu();
-		vBesteOrdutegiaKontsultatu.setVisible(true);
 		
+		mBesteOrdutegiaKontsult = new MBesteOrdutegiaKontsultatu();
+		irakasleak = mBesteOrdutegiaKontsult.getIrakasleak();
+		
+		vBesteOrdutegiaKontsult = new VBesteOrdutegiaKontsultatu(irakasleak);
+		vBesteOrdutegiaKontsult.setVisible(true);
 		start();
 	}
 	
@@ -21,11 +38,29 @@ public class CBesteOrdutegiaKontsultatu {
 	}
 	
 	private void setListeners() {
-		JButton btnLogout = vBesteOrdutegiaKontsultatu.getBtnLogout();
+		JButton btnAtzera = vBesteOrdutegiaKontsult.getBtnAtzera();
+		JButton btnLogout = vBesteOrdutegiaKontsult.getBtnLogout();
+		JComboBox comboBox = vBesteOrdutegiaKontsult.getComboBox();
+		JTable table = vBesteOrdutegiaKontsult.getTable();
 		
-		btnLogout.addActionListener(e -> {
-			vBesteOrdutegiaKontsultatu.dispose();
+		btnAtzera.addActionListener(e -> {
+			vBesteOrdutegiaKontsult.dispose();
 			CMenu cMenu = new CMenu();
 		});
+		
+		btnLogout.addActionListener(e -> {
+			vBesteOrdutegiaKontsult.dispose();
+            GlobalVariables.loggedUser = null;
+            CLogin cLogin = new CLogin();
+		});
+		
+		comboBox.addActionListener(e -> {
+			int index = comboBox.getSelectedIndex();
+			Users selectedUser = irakasleak.get(index);
+			horariosList = mBesteOrdutegiaKontsult.getHorariosByIrakasleId(selectedUser.getId());
+			tableUtils.fillTable(table, horariosList);
+
+		});
+           
 	}
 }

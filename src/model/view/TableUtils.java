@@ -9,11 +9,7 @@ import model.Horarios;
 public class TableUtils {
 	public void fillTable(JTable table, ArrayList<Horarios> horariosList) {
 			
-	    for (int row = 0; row < 5; row++) {
-	        for (int col = 0; col < 5; col++) {
-	            table.setValueAt("", row, col);
-	        }
-	    }
+		this.clearTable(table);
 
 		for (int i = 0; i < horariosList.size(); i++) {
 			Horarios horario = horariosList.get(i);
@@ -42,5 +38,13 @@ public class TableUtils {
 		
 	private int charToInt(char c) {
 		return c - '1';
+	}
+	
+	public void clearTable(JTable table) {
+		for (int row = 0; row < 5; row++) {
+			for (int col = 0; col < 5; col++) {
+				table.setValueAt("", row, col);
+			}
+		}
 	}
 }
