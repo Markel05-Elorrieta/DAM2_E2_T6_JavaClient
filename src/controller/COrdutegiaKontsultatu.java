@@ -33,11 +33,18 @@ public class COrdutegiaKontsultatu {
 	}
 	
 	private void setListeners() {
+		JButton btnAtzera = vOrdutegiaKontsult.getBtnAtzera();
 		JButton btnLogout = vOrdutegiaKontsult.getBtnLogout();
 		
-		btnLogout.addActionListener(e -> {
+		btnAtzera.addActionListener(e -> {
 			vOrdutegiaKontsult.dispose();
 			CMenu cMenu = new CMenu();
+		});
+		
+		btnLogout.addActionListener(e -> {
+            vOrdutegiaKontsult.dispose();
+            GlobalVariables.loggedUser = null;
+            CLogin cLogin = new CLogin();
 		});
 	}
 }

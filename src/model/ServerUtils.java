@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class ServerUtils {
 	
 	private Socket socket;
-	private String ip = "10.5.104.43";
+	private String ip = "10.5.104.34";
 	private int port = 23456;	
 	
 	public Socket connect() {
