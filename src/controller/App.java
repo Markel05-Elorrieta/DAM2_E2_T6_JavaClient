@@ -26,18 +26,23 @@ public class App {
 			PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 			ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
 			
-			out.println("testUser");
+			out.println("usersByTeacher/4");
 			System.out.println("Petición enviada al servidor");
 			
-			Users response = (Users) ois.readObject();
-			System.out.println(response.toString());
+			ArrayList<Users> response = (ArrayList<Users>) ois.readObject();
+			// System.out.println(response.toString());
+			
+			for (Users user : response) {
+				System.out.println(user.toString());
+			}
 				
 			System.out.println("Closing communication");
 			
 			} catch (Exception e) {
-			e.printStackTrace();
+				e.printStackTrace();
 			}
-		*/
+			*/
+		
 		CLogin cLogin = new CLogin();		
 	}
 
