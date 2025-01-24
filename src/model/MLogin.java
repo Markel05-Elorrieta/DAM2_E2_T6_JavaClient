@@ -17,12 +17,17 @@ public class MLogin {
 	
 	// Lectura de mensajes del servidor
 	private ObjectInputStream ois;
+	
+	private MBCrypt mBCrypt;
 		
 	public MLogin() {
 		server = new ServerUtils();
 	}
 	
 	public boolean checkLogin(String email, String password) {
+		
+		mBCrypt = new MBCrypt();
+		
 		try {			
 			socket = server.connect();
 			pw = new PrintWriter(socket.getOutputStream(), true);
@@ -33,22 +38,22 @@ public class MLogin {
 			Utilities u = new Utilities();
 			byte[] hashedPwd = u.encrypt(password);
 			*/
-			String toSend = "loginJava/" + email + "/" + password;
+			String toSend = "loginJava/" + email;
 			System.out.println(toSend);
 			pw.println(toSend);
 			
 			System.out.println("Petición enviada al servidor");
 						
-			Users response = (Users) ois.readObject();			
-			
-		    
+			Users response = (Users) ois.readObject();					
+		    System.out.println(response.getPassword());
 			ois.close();
 			pw.close();
 			server.close();
 			
-			if (response == null) {
+			if (response == null || !mBCrypt.checkPassword(password, response.getPassword())) {
 				return false;
-			}		
+			}
+			
 			GlobalVariables.loggedUser = response;
 			return true;
 		} catch (IOException e) {

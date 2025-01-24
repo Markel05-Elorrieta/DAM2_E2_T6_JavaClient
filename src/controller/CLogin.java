@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import model.MBCrypt;
 import model.MLogin;
 import model.Utilities;
 import view.VLogin;
