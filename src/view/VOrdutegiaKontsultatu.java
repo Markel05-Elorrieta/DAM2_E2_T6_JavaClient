@@ -1,4 +1,4 @@
-/*package view;
+package view;
 
 import java.util.ArrayList;
 
@@ -85,8 +85,10 @@ public class VOrdutegiaKontsultatu extends JFrame {
 	}
 	
 }
-*/
 
+
+
+/*
 package view;
 
 import java.awt.BorderLayout;
@@ -213,3 +215,5 @@ public class VOrdutegiaKontsultatu extends JFrame {
         return table;
     }
 }
+
+*/
