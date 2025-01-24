@@ -59,8 +59,10 @@ public class CBesteOrdutegiaKontsultatu {
 			Users selectedUser = irakasleak.get(index);
 			horariosList = mBesteOrdutegiaKontsult.getHorariosByIrakasleId(selectedUser.getId());
 			tableUtils.fillTable(table, horariosList);
-
 		});
            
 	}
+	
+	
+
 }
