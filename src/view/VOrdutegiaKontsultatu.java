@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 import model.Horarios;
-import model.view.TableRender;
+import model.view.TableRenderSchedule;
 import model.view.TableUtils;
 
 import javax.swing.JButton;
@@ -27,7 +27,7 @@ public class VOrdutegiaKontsultatu extends JFrame {
 	private JButton btnAtzera;
 	private JButton btnLogout;
 	private JTable table;
-	private TableRender tableRender = new TableRender();
+	private TableRenderSchedule tableRender = new TableRenderSchedule();
 	
 	public VOrdutegiaKontsultatu(ArrayList<Horarios> horariosList) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

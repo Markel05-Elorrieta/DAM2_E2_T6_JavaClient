@@ -1,10 +1,23 @@
 package model.view;
 
 import java.awt.Component;
+import java.util.ArrayList;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
-public class TableRender extends DefaultTableCellRenderer {
+import model.Horarios;
+import model.Reuniones;
+
+public class TableRenderBilerak extends DefaultTableCellRenderer {
+		private ArrayList<Horarios> scheduleList;
+		private ArrayList<Reuniones> bilerakList;
+	
+		public TableRenderBilerak(ArrayList<Horarios> scheduleList, ArrayList<Reuniones> bilerakList) {
+			this.scheduleList = scheduleList;
+			this.bilerakList = bilerakList;
+		}
+		
 
 	@Override
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
@@ -15,6 +28,7 @@ public class TableRender extends DefaultTableCellRenderer {
 
 		if (value != null) {
 			System.out.println(value.toString());
+			
 			switch (value.toString()) {
 				case "Tutoria":
 				case "Tutoretza":

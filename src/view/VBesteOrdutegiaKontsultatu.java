@@ -13,7 +13,7 @@ import javax.swing.table.JTableHeader;
 
 import model.Horarios;
 import model.Users;
-import model.view.TableRender;
+import model.view.TableRenderSchedule;
 import model.view.TableUtils;
 
 import javax.swing.JButton;
@@ -33,7 +33,7 @@ public class VBesteOrdutegiaKontsultatu extends JFrame {
 	private JButton btnLogout;
 	private JTable table;
 	private JComboBox comboBox;
-	private TableRender tableRender = new TableRender();
+	private TableRenderSchedule tableRender = new TableRenderSchedule();
 	
 	public VBesteOrdutegiaKontsultatu(ArrayList<Users> irakasleak) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
