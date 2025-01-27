@@ -10,11 +10,9 @@ import model.Horarios;
 import model.Reuniones;
 
 public class TableRenderBilerak extends DefaultTableCellRenderer {
-		private ArrayList<Horarios> scheduleList;
 		private ArrayList<Reuniones> bilerakList;
 	
-		public TableRenderBilerak(ArrayList<Horarios> scheduleList, ArrayList<Reuniones> bilerakList) {
-			this.scheduleList = scheduleList;
+		public TableRenderBilerak(ArrayList<Reuniones> bilerakList) {
 			this.bilerakList = bilerakList;
 		}
 		

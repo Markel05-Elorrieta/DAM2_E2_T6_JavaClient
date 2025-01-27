@@ -14,6 +14,7 @@ import javax.swing.table.JTableHeader;
 
 import model.Horarios;
 import model.Reuniones;
+import model.view.TableRenderBilerak;
 import model.view.TableRenderSchedule;
 import model.view.TableUtils;
 
@@ -26,9 +27,10 @@ public class VBilerakKontsultatu extends JFrame {
 	private JButton btnAtzera;
 	private JButton btnLogout;
 	private JTable table;
-	private TableRenderSchedule tableRender = new TableRenderSchedule();
+	private TableRenderBilerak tableRender;
 	
 	public VBilerakKontsultatu(ArrayList<Horarios> horariosList, ArrayList<Reuniones> bilerakList) {
+		tableRender = new TableRenderBilerak(bilerakList);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 662, 486);
 		contentPane = new JPanel();
