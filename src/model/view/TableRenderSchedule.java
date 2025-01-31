@@ -16,67 +16,67 @@ public class TableRenderSchedule extends DefaultTableCellRenderer {
 		if (value != null) {
 			System.out.println(value.toString());
 			switch (value.toString()) {
-				case "Tutoria":
+				case "T":
 				case "Tutoretza":
 					c.setBackground(java.awt.Color.RED);
 					c.setForeground(java.awt.Color.WHITE);
 					break;
-				case "Guardia":
+				case "G":
 				case "Zaintza":
 					c.setBackground(java.awt.Color.GREEN);
 					c.setForeground(java.awt.Color.BLACK);
 					break;
-				case "Sistemas Informaticos":
+				case "SI":
 				case "Informatika-sistemak":
 					c.setBackground(java.awt.Color.BLUE);
 					c.setForeground(java.awt.Color.BLACK);
 					break;
-				case "Bases de datos":
+				case "BD":
 				case "Datu-baseak":
 					c.setBackground(java.awt.Color.CYAN);
 					c.setForeground(java.awt.Color.BLACK);
 					break;
-				case "Programación":
+				case "PR":
 				case "Programazioa":
 					c.setBackground(java.awt.Color.MAGENTA);
 					c.setForeground(java.awt.Color.BLACK);
 					break;
-				case "Lenguajes de marcas":
+				case "LM":
 				case "Markatzeko lengoaiak":
 					c.setBackground(java.awt.Color.YELLOW);
 					c.setForeground(java.awt.Color.BLACK);
 					break;
-				case "Entornos de desarrollo":
+				case "ED":
 				case "Garapen-inguruneak":
 					c.setBackground(java.awt.Color.GRAY);
 					c.setForeground(java.awt.Color.BLACK);
 					break;
-				case "Acceso a datos":
+				case "AD":
 				case "Datu-atzipena":
 					c.setBackground(java.awt.Color.DARK_GRAY);
 					c.setForeground(java.awt.Color.WHITE);
 					break;
-				case "Desarrollo de interfaces":
+				case "DI":
 				case "Interfazeen garapena":
 					c.setBackground(java.awt.Color.LIGHT_GRAY);
 					c.setForeground(java.awt.Color.BLACK);
 					break;
-				case "Programación multimedia y dispositivos móviles":
+				case "PMDM":
 				case "Multimedia-programazioa eta gailu mugikorrak":
 					c.setBackground(java.awt.Color.ORANGE);
 					c.setForeground(java.awt.Color.BLACK);
 					break;
-				case "Programación de servicios y procesos":
+				case "PSP":
 				case "Zerbitzu eta prozesuen programazioa":
 					c.setBackground(java.awt.Color.PINK);
 					c.setForeground(java.awt.Color.BLACK);
 					break;
-				case "Sistemas de gestión empresarial":
+				case "SGE":
 				case "Enpresa-kudeaketako sistemak":
 					c.setBackground(new java.awt.Color(0, 255, 0));
 					c.setForeground(java.awt.Color.BLACK);
 					break;
-				case "Empresa e Iniciativa Emprendedora":
+				case "EIE":
 				case "Enpresa eta ekimen sortzailea":
 					c.setBackground(new java.awt.Color(0, 255, 255));
 					c.setForeground(java.awt.Color.BLACK);

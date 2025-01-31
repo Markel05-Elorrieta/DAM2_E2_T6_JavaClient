@@ -1,9 +1,13 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -26,6 +30,7 @@ public class VBilerakKontsultatu extends JFrame {
 
 	private JButton btnAtzera;
 	private JButton btnLogout;
+	private JButton btnNewBilera;
 	private JTable table;
 	private TableRenderBilerak tableRender;
 	
@@ -36,28 +41,34 @@ public class VBilerakKontsultatu extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
-		System.out.println(horariosList.size());
-		
 
 		DefaultTableModel model = new DefaultTableModel(new Object[]{"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"}, 5);
 
 		table = new JTable(model);
+		table.setBorder(null);
 		table.setEnabled(false);
+		table.setBorder(BorderFactory.createEmptyBorder());
 		table.setBounds(10, 110, 626, 104);
 		
 		
 		
 		JTableHeader header = table.getTableHeader();
 		header.setReorderingAllowed(false);
+		header.setBackground(new Color(200, 200, 200)); // Light gray background
+		
+        // Add a big border behind the header
+        JPanel headerPanel = new JPanel();
+        headerPanel.setLayout(new BorderLayout());
+        headerPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Large border
+        headerPanel.add(header);
 		
 		table.setDefaultRenderer(Object.class, tableRender);
 		
-
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setEnabled(false);
-		scrollPane.setBounds(10, 110, 626, 104);
+		scrollPane.setBounds(10, 110, 626, 256);
 		contentPane.add(scrollPane);
-		
+		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -72,6 +83,12 @@ public class VBilerakKontsultatu extends JFrame {
 		
 		tableUtils.fillTable(table, horariosList);
 		tableUtils.fillTableReuniones(table, bilerakList);
+		tableUtils.adjustRowHeights(table);
+		
+		btnNewBilera = new JButton("btnNewBilera");
+		btnNewBilera.setBounds(270, 377, 110, 23);
+		contentPane.add(btnNewBilera);
+		
 	}
 
 	public JButton getBtnLogout() {
@@ -82,8 +99,11 @@ public class VBilerakKontsultatu extends JFrame {
 		return btnAtzera;
 	}
 	
+	public JButton getBtnNewBilera() {
+		return btnNewBilera;
+	}
+	
 	public JTable getTable() {
 		return table;
 	}
-
 }

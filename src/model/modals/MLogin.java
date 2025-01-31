@@ -1,4 +1,4 @@
-package model;
+package model.modals;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,6 +6,11 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+
+import model.Users;
+import model.utilities.GlobalVariables;
+import model.utilities.MBCrypt;
+import model.utilities.ServerUtils;
 
 public class MLogin {
 	// Conexion con el servidor
@@ -31,7 +36,6 @@ public class MLogin {
 		try {			
 			socket = server.connect();
 			pw = new PrintWriter(socket.getOutputStream(), true);
-			
 			ois = new ObjectInputStream(socket.getInputStream());
 			
 			/*
@@ -39,13 +43,11 @@ public class MLogin {
 			byte[] hashedPwd = u.encrypt(password);
 			*/
 			String toSend = "loginJava/" + email;
-			System.out.println(toSend);
 			pw.println(toSend);
 			
 			System.out.println("Petición enviada al servidor");
 						
 			Users response = (Users) ois.readObject();					
-		    System.out.println(response.getPassword());
 			ois.close();
 			pw.close();
 			server.close();

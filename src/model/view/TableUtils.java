@@ -1,5 +1,6 @@
 package model.view;
 
+import java.awt.Component;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,19 +19,19 @@ public class TableUtils {
 			Horarios horario = horariosList.get(i);
 			switch (horario.getId().getDia()) {
 				case "L/A":
-					table.setValueAt(horario.getModulos().getNombre(), charToInt(horario.getId().getHora()), 0);
+					table.setValueAt(nameToCode(horario.getModulos().getNombre()), charToInt(horario.getId().getHora()), 0);
 					break;
 				case "M/A":
-					table.setValueAt(horario.getModulos().getNombre(), charToInt(horario.getId().getHora()), 1);
+					table.setValueAt(nameToCode(horario.getModulos().getNombre()), charToInt(horario.getId().getHora()), 1);
 					break;
 				case "X":
-					table.setValueAt(horario.getModulos().getNombre(), charToInt(horario.getId().getHora()), 2);
+					table.setValueAt(nameToCode(horario.getModulos().getNombre()), charToInt(horario.getId().getHora()), 2);
 					break;
 				case "J/O":
-					table.setValueAt(horario.getModulos().getNombre(), charToInt(horario.getId().getHora()), 3);
+					table.setValueAt(nameToCode(horario.getModulos().getNombre()), charToInt(horario.getId().getHora()), 3);
 					break;
 				case "V/O":
-					table.setValueAt(horario.getModulos().getNombre(), charToInt(horario.getId().getHora()), 4);
+					table.setValueAt(nameToCode(horario.getModulos().getNombre()), charToInt(horario.getId().getHora()), 4);
 					break;
 				default:
 					System.err.println("Day not found -> " + horario.getId().getDia());
@@ -51,18 +52,35 @@ public class TableUtils {
         
 		for (int i = 0; i < reunionesList.size(); i++) {
 			for (int j = 0; j < weekDates.size(); j++) {
-				System.out.println("unos sysos antes");
 				String[] separado = reunionesList.get(i).getFecha().toString().split(" ");
 			
 				if (separado[0].equals(weekDates.get(j))) {
-					System.out.println("unos sysos");
-					table.setValueAt(reunionesList.get(i).getTitulo(), parseHora(reunionesList.get(i).getFecha().getHours()) , j );
+			
+					if(table.getValueAt(parseHora(reunionesList.get(i).getFecha().getHours()), j) == "" ) {
+						table.setValueAt(reunionesList.get(i).getTitulo(), parseHora(reunionesList.get(i).getFecha().getHours()) , j );	
+					}else {
+						table.setValueAt(table.getValueAt(parseHora(reunionesList.get(i).getFecha().getHours()), j) + "\n" + reunionesList.get(i).getTitulo(), parseHora(reunionesList.get(i).getFecha().getHours()), j);
+					}
+				
 				}
 			}
 		}
-        
-        System.out.println(weekDates.get(0));
+		adjustRowHeights(table);
+      
 	
+	}
+	
+	public void adjustRowHeights(JTable table) {
+	    for (int row = 0; row < table.getRowCount(); row++) {
+	        int rowHeight = table.getRowHeight(row);
+
+	        for (int column = 0; column < table.getColumnCount(); column++) {
+	            Component comp = table.prepareRenderer(table.getCellRenderer(row, column), row, column);
+	            rowHeight = Math.max(rowHeight, comp.getPreferredSize().height);
+	        }
+
+	        table.setRowHeight(row, rowHeight);
+	    }
 	}
 		
 	private int parseHora (int hora) {
@@ -94,6 +112,39 @@ public class TableUtils {
 			for (int col = 0; col < 5; col++) {
 				table.setValueAt("", row, col);
 			}
+		}
+	}
+	
+	private String nameToCode(String name) {
+		switch (name) {
+        case "Tutoria":
+            return "T";
+        case "Guardia":
+            return "G";
+        case "Sistemas Informaticos":
+            return "SI";
+        case "Bases de datos":
+            return "BD";
+        case "Programación":
+            return "PR";
+        case "Lenguajes de marcas":
+            return "LM";
+        case "Entornos de desarrollo":
+            return "ED";
+        case "Acceso a datos":
+            return "AD";
+        case "Desarrollo de interfaces":
+            return "DI";
+        case "Programación multimedia y dispositivos móviles":
+            return "PMDM";
+        case "Programación de servicios y procesos":
+            return "PSP";
+        case "Sistemas de gestión empresarial":
+            return "SGE";
+        case "Empresa e Iniciativa Emprendedora":
+            return "EIE";
+        default:
+        	return "N/A";
 		}
 	}
 }

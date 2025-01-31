@@ -1,4 +1,4 @@
-package model;
+package model.modals;
 
 public class MMenu {
 	

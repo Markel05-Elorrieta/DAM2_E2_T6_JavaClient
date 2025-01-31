@@ -4,9 +4,9 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import model.MBCrypt;
-import model.MLogin;
-import model.Utilities;
+import model.modals.MLogin;
+import model.utilities.MBCrypt;
+import model.utilities.Utilities;
 import view.VLogin;
 
 public class CLogin {

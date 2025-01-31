@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 
-import model.GlobalVariables;
 import model.Horarios;
-import model.MBilerakKontsultatu;
-import model.MOrdutegiaKontsultatu;
 import model.Reuniones;
+import model.modals.MBilerakKontsultatu;
+import model.modals.MOrdutegiaKontsultatu;
+import model.utilities.GlobalVariables;
 import view.VBilerakKontsultatu;
 
 public class CBilerakKontsultatu {
@@ -39,10 +39,23 @@ public class CBilerakKontsultatu {
 	
 	private void setListeners() {
 		JButton btnLogout = vBilerakKontsultatu.getBtnLogout();
+		JButton btnAtzera = vBilerakKontsultatu.getBtnAtzera();
+		JButton btnNewBilera = vBilerakKontsultatu.getBtnNewBilera();
 		
 		btnLogout.addActionListener(e -> {
 			vBilerakKontsultatu.dispose();
-			CMenu cMenu = new CMenu();
+			GlobalVariables.loggedUser = null;
+			CLogin cLogin = new CLogin();
+		});
+		
+		btnAtzera.addActionListener(e -> {
+			vBilerakKontsultatu.dispose();
+			CMenu cMenua = new CMenu();
+		});
+		
+		btnNewBilera.addActionListener(e -> {
+			vBilerakKontsultatu.dispose();
+			CBilerakSortu cBilerakSortu = new CBilerakSortu();
 		});
 	}
 

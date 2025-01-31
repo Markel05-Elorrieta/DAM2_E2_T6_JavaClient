@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 
-import model.GlobalVariables;
 import model.Horarios;
-import model.MOrdutegiaKontsultatu;
+import model.modals.MOrdutegiaKontsultatu;
+import model.utilities.GlobalVariables;
 import view.VOrdutegiaKontsultatu;
 
 public class COrdutegiaKontsultatu {

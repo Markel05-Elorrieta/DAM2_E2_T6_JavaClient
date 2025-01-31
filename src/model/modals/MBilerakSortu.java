@@ -1,12 +1,16 @@
-package model;
+package model.modals;
 
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class MBilerakKontsultatu {
+import model.Users;
+import model.utilities.MBCrypt;
+import model.utilities.ServerUtils;
+
+public class MBilerakSortu {
+	// Conexion con el servidor
 	private ServerUtils server;
 	private Socket socket;
 	
@@ -15,34 +19,36 @@ public class MBilerakKontsultatu {
 	
 	// Lectura de mensajes del servidor
 	private ObjectInputStream ois;
+	
+	private MBCrypt mBCrypt;
 		
-	public MBilerakKontsultatu() {
+	public MBilerakSortu() {
 		server = new ServerUtils();
 	}
 	
-	public ArrayList<Reuniones> bilerakByTeacher(int id) {
+	public ArrayList<Users> getIkasleakByIrakasleId(int irakasleId) {
+
+		mBCrypt = new MBCrypt();
+
 		try {
 			socket = server.connect();
 			pw = new PrintWriter(socket.getOutputStream(), true);
-			
+
 			ois = new ObjectInputStream(socket.getInputStream());
-			
-			pw.println("bilerakByTeacher/" + id);
-						
-			ArrayList<Reuniones> response = (ArrayList<Reuniones>) ois.readObject();			
-			System.out.println(response);
+
+			String toSend = "getIkasleakByIrakasleId/" + irakasleId;
+			pw.println(toSend);
+
+
+			ArrayList<Users> response = (ArrayList<Users>) ois.readObject();
 			ois.close();
 			pw.close();
 			server.close();
-			
+
 			return response;
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return null;
 		}
-		return null;
-	
 	}
 }

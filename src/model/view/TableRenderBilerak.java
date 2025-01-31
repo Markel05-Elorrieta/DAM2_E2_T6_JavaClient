@@ -1,146 +1,40 @@
 package model.view;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
 
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.JTextArea;
+import javax.swing.table.TableCellRenderer;
 
-import model.Horarios;
 import model.Reuniones;
 
-public class TableRenderBilerak extends DefaultTableCellRenderer {
-		private ArrayList<Reuniones> bilerakList;
-	
-		public TableRenderBilerak(ArrayList<Reuniones> bilerakList) {
-			this.bilerakList = bilerakList;
-		}
-		
+public class TableRenderBilerak extends JTextArea implements TableCellRenderer {
+    private ArrayList<Reuniones> bilerakList;
 
-	@Override
-	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
-			int row, int column) {
-		Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+    public TableRenderBilerak(ArrayList<Reuniones> bilerakList) {
+        this.bilerakList = bilerakList;
+        setLineWrap(true);
+        setWrapStyleWord(true);
+    }
 
-		// Set the appropriate icon based on the cell value
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+                                                   int row, int column) {
+        // Ensure JTextArea text is updated
+        setText(value != null ? value.toString() : "");
 
-		if (value != null) {
-			System.out.println(value.toString());
-			
-			if (value != null) {
-				System.out.println(value.toString());
-				switch (value.toString()) {
-					case "Tutoria":
-					case "Tutoretza":
-						c.setBackground(java.awt.Color.RED);
-						c.setForeground(java.awt.Color.WHITE);
-						break;
-					case "Guardia":
-					case "Zaintza":
-						c.setBackground(java.awt.Color.GREEN);
-						c.setForeground(java.awt.Color.BLACK);
-						break;
-					case "Sistemas Informaticos":
-					case "Informatika-sistemak":
-						c.setBackground(java.awt.Color.BLUE);
-						c.setForeground(java.awt.Color.BLACK);
-						break;
-					case "Bases de datos":
-					case "Datu-baseak":
-						c.setBackground(java.awt.Color.CYAN);
-						c.setForeground(java.awt.Color.BLACK);
-						break;
-					case "Programación":
-					case "Programazioa":
-						c.setBackground(java.awt.Color.MAGENTA);
-						c.setForeground(java.awt.Color.BLACK);
-						break;
-					case "Lenguajes de marcas":
-					case "Markatzeko lengoaiak":
-						c.setBackground(java.awt.Color.YELLOW);
-						c.setForeground(java.awt.Color.BLACK);
-						break;
-					case "Entornos de desarrollo":
-					case "Garapen-inguruneak":
-						c.setBackground(java.awt.Color.GRAY);
-						c.setForeground(java.awt.Color.BLACK);
-						break;
-					case "Acceso a datos":
-					case "Datu-atzipena":
-						c.setBackground(java.awt.Color.DARK_GRAY);
-						c.setForeground(java.awt.Color.WHITE);
-						break;
-					case "Desarrollo de interfaces":
-					case "Interfazeen garapena":
-						c.setBackground(java.awt.Color.LIGHT_GRAY);
-						c.setForeground(java.awt.Color.BLACK);
-						break;
-					case "Programación multimedia y dispositivos móviles":
-					case "Multimedia-programazioa eta gailu mugikorrak":
-						c.setBackground(java.awt.Color.ORANGE);
-						c.setForeground(java.awt.Color.BLACK);
-						break;
-					case "Programación de servicios y procesos":
-					case "Zerbitzu eta prozesuen programazioa":
-						c.setBackground(java.awt.Color.PINK);
-						c.setForeground(java.awt.Color.BLACK);
-						break;
-					case "Sistemas de gestión empresarial":
-					case "Enpresa-kudeaketako sistemak":
-						c.setBackground(new java.awt.Color(0, 255, 0));
-						c.setForeground(java.awt.Color.BLACK);
-						break;
-					case "Empresa e Iniciativa Emprendedora":
-					case "Enpresa eta ekimen sortzailea":
-						c.setBackground(new java.awt.Color(0, 255, 255));
-						c.setForeground(java.awt.Color.BLACK);
-						break;
-					case "":
-					case " ":
-					case "null":
-						c.setBackground(java.awt.Color.WHITE);
-						c.setForeground(java.awt.Color.BLACK);
-						break;
-					default:
-		                c.setBackground(java.awt.Color.WHITE);
-		                c.setForeground(java.awt.Color.BLACK);
-		                break;
-						
-				}
-			}
-			
-			// Onartzeke
-			for (int i = 0 ; i < bilerakList.size(); i++) {
-				if (value.toString().equals(bilerakList.get(i).getTitulo())) {
-					String status = bilerakList.get(i).getEstado();
-					switch (status) {
-						case "pendiente":
-							c.setBackground(java.awt.Color.ORANGE);
-							c.setForeground(java.awt.Color.BLACK);
-							break;
-						case "aceptada":
-							c.setBackground(java.awt.Color.GREEN);
-							c.setForeground(java.awt.Color.BLACK);
-							break;
-						case "denegada":
-							c.setBackground(java.awt.Color.RED);
-							c.setForeground(java.awt.Color.WHITE);
-							break;
-						case "conflicto":
-							c.setBackground(java.awt.Color.GRAY);
-							c.setForeground(java.awt.Color.WHITE);
-							break;
-						
-					}
+        // Apply selection and focus styles
+        if (isSelected) {
+            setBackground(table.getSelectionBackground());
+            setForeground(table.getSelectionForeground());
+        } else {
+            setBackground(table.getBackground());
+            setForeground(table.getForeground());
+        }
 
-				}
-				
-			}
-			
-			
-		}
-
-		return c;
-	}
+        return this;
+    }
 
 }

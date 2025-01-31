@@ -6,10 +6,10 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 
-import model.GlobalVariables;
 import model.Horarios;
-import model.MBesteOrdutegiaKontsultatu;
 import model.Users;
+import model.modals.MBesteOrdutegiaKontsultatu;
+import model.utilities.GlobalVariables;
 import model.view.TableUtils;
 import view.VBesteOrdutegiaKontsultatu;
 
