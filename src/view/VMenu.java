@@ -13,6 +13,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import global.Constants;
+import java.awt.Toolkit;
 
 public class VMenu extends JFrame {
 
@@ -27,6 +28,8 @@ public class VMenu extends JFrame {
 	private JLabel lblLogo;
 
 	public VMenu() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VMenu.class.getResource("/images/elorrieta.png")));
+		setTitle("Menua - JEM Software");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
 		contentPane = new JPanel();

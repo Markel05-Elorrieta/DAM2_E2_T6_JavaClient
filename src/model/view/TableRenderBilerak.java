@@ -17,13 +17,16 @@ public class TableRenderBilerak extends JTextArea implements TableCellRenderer {
         this.bilerakList = bilerakList;
         setLineWrap(true);
         setWrapStyleWord(true);
+        setBorder(null); // Optionally remove border around JTextArea
     }
 
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
                                                    int row, int column) {
+    	
         // Ensure JTextArea text is updated
-        setText(value != null ? value.toString() : "");
+        String text = value != null ? value.toString() : "";
+        setText(text);
 
         // Apply selection and focus styles
         if (isSelected) {
@@ -34,7 +37,8 @@ public class TableRenderBilerak extends JTextArea implements TableCellRenderer {
             setForeground(table.getForeground());
         }
 
+        // Ensure the text is updated for multi-line support
+        setCaretPosition(0); // Reset caret position
         return this;
     }
-
 }

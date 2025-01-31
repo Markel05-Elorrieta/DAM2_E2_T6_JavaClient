@@ -20,10 +20,10 @@ public class App {
 			Socket socket = new Socket("10.5.104.43", 23456);
 			System.out.println("Connected to server!");
 			
-			PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+			PrintWriter pw = new PrintWriter(socket.getOutputStream(), true);
 			ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
 			
-			out.println("getIkastetxeak");
+			pw.println("getIkastetxeak");
 			System.out.println("Petición enviada al servidor");
 			
 			List<Ikastetxeak> response = (List<Ikastetxeak>) ois.readObject();
@@ -35,12 +35,13 @@ public class App {
 			
 				
 			System.out.println("Closing communication");
-			socket.close();
+		    pw.close();
+		    ois.close();
+		    socket.close();
 		} catch (Exception e) {
 			
 		}
 		*/
-			
 	
 		CLogin cLogin = new CLogin();		
 	}

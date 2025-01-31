@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.Users;
 import model.modals.MBilerakSortu;
+import model.utilities.GlobalVariables;
 import view.VBilerakSortu;
 
 public class CBilerakSortu {
@@ -16,7 +17,7 @@ public class CBilerakSortu {
 
 		mBilerakSortu = new MBilerakSortu();
 		
-		ArrayList<Users> userList = mBilerakSortu.getIkasleakByIrakasleId(1);
+		ArrayList<Users> userList = mBilerakSortu.getIkasleakByIrakasleId(GlobalVariables.loggedUser.getId());
 		
 		vBilerakSortu = new VBilerakSortu(userList);
 		vBilerakSortu.setVisible(true);

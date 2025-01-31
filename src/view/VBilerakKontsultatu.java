@@ -5,7 +5,10 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 
+
 import javax.swing.BorderFactory;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -16,11 +19,18 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
+import global.Constants;
 import model.Horarios;
 import model.Reuniones;
 import model.view.TableRenderBilerak;
 import model.view.TableRenderSchedule;
 import model.view.TableUtils;
+import java.awt.Font;
+import java.awt.Image;
+
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Color;
 
 public class VBilerakKontsultatu extends JFrame {
 
@@ -33,11 +43,13 @@ public class VBilerakKontsultatu extends JFrame {
 	private JButton btnNewBilera;
 	private JTable table;
 	private TableRenderBilerak tableRender;
+	private JLabel lblLogo;
 	
 	public VBilerakKontsultatu(ArrayList<Horarios> horariosList, ArrayList<Reuniones> bilerakList) {
+		setTitle("Bilerak - JEM Software");
 		tableRender = new TableRenderBilerak(bilerakList);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 662, 486);
+		setBounds(100, 100, Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
@@ -50,7 +62,9 @@ public class VBilerakKontsultatu extends JFrame {
 		table.setBorder(BorderFactory.createEmptyBorder());
 		table.setBounds(10, 110, 626, 104);
 		
-		
+		table.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		table.setEnabled(false);
+		table.setBounds(10, 110, 800, 200);
 		
 		JTableHeader header = table.getTableHeader();
 		header.setReorderingAllowed(false);
@@ -63,32 +77,57 @@ public class VBilerakKontsultatu extends JFrame {
         headerPanel.add(header);
 		
 		table.setDefaultRenderer(Object.class, tableRender);
+
 		
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setEnabled(false);
-		scrollPane.setBounds(10, 110, 626, 256);
+
+		scrollPane.setBounds(10, 128, 745, 212);
+
 		contentPane.add(scrollPane);
 		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		btnAtzera = new JButton("btnAtzera");
-		btnAtzera.setBounds(10, 45, 89, 23);
-		contentPane.add(btnAtzera);
-		
-		btnLogout = new JButton("btnLogout");
-		btnLogout.setBounds(10, 11, 89, 23);
-		contentPane.add(btnLogout);
-		
 		tableUtils.fillTable(table, horariosList);
 		tableUtils.fillTableReuniones(table, bilerakList);
 		tableUtils.adjustRowHeights(table);
+
 		
 		btnNewBilera = new JButton("btnNewBilera");
 		btnNewBilera.setBounds(270, 377, 110, 23);
 		contentPane.add(btnNewBilera);
+
 		
+		btnAtzera = new JButton("⬅️ Atzera");
+		btnAtzera.setHorizontalAlignment(SwingConstants.RIGHT);
+		btnAtzera.setForeground(Color.WHITE);
+		btnAtzera.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 17));
+		btnAtzera.setBackground(Color.CYAN);
+		btnAtzera.setBounds(24, 423, 150, 37);
+		contentPane.add(btnAtzera);
+		
+		btnLogout = new JButton("❌ Logout");
+		btnLogout.setForeground(Color.WHITE);
+		btnLogout.setFont(new Font("Segoe UI Emoji", Font.BOLD, 16));
+		btnLogout.setFocusPainted(false);
+		btnLogout.setBackground(Color.RED);
+		btnLogout.setBounds(605, 11, 150, 34);
+		contentPane.add(btnLogout);
+		
+		JLabel lblNewLabel = new JLabel("BILERAK");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Segoe UI Variable", Font.PLAIN, 29));
+		lblNewLabel.setBounds(0, 11, 765, 37);
+		contentPane.add(lblNewLabel);
+		
+		lblLogo = new JLabel();
+		lblLogo.setBounds(10, 11, 150, 44);
+		ImageIcon logoIcon = new ImageIcon(getClass().getResource("/images/elorrieta.png"));
+		Image logoImage = logoIcon.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(), Image.SCALE_SMOOTH);
+		lblLogo.setIcon(new ImageIcon(logoImage));
+		contentPane.add(lblLogo);
 	}
 
 	public JButton getBtnLogout() {

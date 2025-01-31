@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import global.Constants;
+import java.awt.Toolkit;
 
 public class VLogin extends JFrame {
 
@@ -26,6 +27,8 @@ public class VLogin extends JFrame {
 	private Image backgroundImage;
 
 	public VLogin() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VLogin.class.getResource("/images/elorrieta.png")));
+		setTitle("Login - JEM Software");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
 		contentPane = new JPanel();

@@ -56,7 +56,7 @@ public class TableUtils {
 			
 				if (separado[0].equals(weekDates.get(j))) {
 			
-					if(table.getValueAt(parseHora(reunionesList.get(i).getFecha().getHours()), j) == "" ) {
+					if(table.getValueAt(parseHora(reunionesList.get(i).getFecha().getHours()), j) == "" || table.getValueAt(parseHora(reunionesList.get(i).getFecha().getHours()), j) == null || table.getValueAt(parseHora(reunionesList.get(i).getFecha().getHours()), j) == " ") {
 						table.setValueAt(reunionesList.get(i).getTitulo(), parseHora(reunionesList.get(i).getFecha().getHours()) , j );	
 					}else {
 						table.setValueAt(table.getValueAt(parseHora(reunionesList.get(i).getFecha().getHours()), j) + "\n" + reunionesList.get(i).getTitulo(), parseHora(reunionesList.get(i).getFecha().getHours()), j);
@@ -67,7 +67,6 @@ public class TableUtils {
 		}
 		adjustRowHeights(table);
       
-	
 	}
 	
 	public void adjustRowHeights(JTable table) {

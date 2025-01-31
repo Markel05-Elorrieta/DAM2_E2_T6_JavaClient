@@ -36,7 +36,7 @@ public class MBilerakSortu {
 
 			ois = new ObjectInputStream(socket.getInputStream());
 
-			String toSend = "getIkasleakByIrakasleId/" + irakasleId;
+			String toSend = "usersByTeacher/" + irakasleId;
 			pw.println(toSend);
 
 

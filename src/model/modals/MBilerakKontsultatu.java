@@ -30,7 +30,7 @@ public class MBilerakKontsultatu {
 			
 			ois = new ObjectInputStream(socket.getInputStream());
 			
-			pw.println("usersByTeacher/" + id);
+			pw.println("bilerakByTeacher/" + id);
 						
 			ArrayList<Reuniones> response = (ArrayList<Reuniones>) ois.readObject();			
 			System.out.println(response);
