@@ -40,7 +40,6 @@ public class VBilerakKontsultatu extends JFrame {
 
 	private JButton btnAtzera;
 	private JButton btnLogout;
-	private JButton btnNewBilera;
 	private JTable table;
 	private TableRenderBilerak tableRender;
 	private JLabel lblLogo;
@@ -59,7 +58,6 @@ public class VBilerakKontsultatu extends JFrame {
 		table = new JTable(model);
 		table.setBorder(null);
 		table.setEnabled(false);
-		table.setBorder(BorderFactory.createEmptyBorder());
 		table.setBounds(10, 110, 626, 104);
 		
 		table.setFont(new Font("Tahoma", Font.PLAIN, 17));
@@ -93,11 +91,6 @@ public class VBilerakKontsultatu extends JFrame {
 		tableUtils.fillTable(table, horariosList);
 		tableUtils.fillTableReuniones(table, bilerakList);
 		tableUtils.adjustRowHeights(table);
-
-		
-		btnNewBilera = new JButton("btnNewBilera");
-		btnNewBilera.setBounds(270, 377, 110, 23);
-		contentPane.add(btnNewBilera);
 
 		
 		btnAtzera = new JButton("⬅️ Atzera");
@@ -138,11 +131,8 @@ public class VBilerakKontsultatu extends JFrame {
 		return btnAtzera;
 	}
 	
-	public JButton getBtnNewBilera() {
-		return btnNewBilera;
-	}
-	
 	public JTable getTable() {
 		return table;
 	}
+
 }

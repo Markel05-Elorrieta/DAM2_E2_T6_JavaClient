@@ -23,7 +23,7 @@ public class TableRenderBilerak extends JTextArea implements TableCellRenderer {
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
                                                    int row, int column) {
-    	
+
         // Ensure JTextArea text is updated
         String text = value != null ? value.toString() : "";
         setText(text);
@@ -39,6 +39,9 @@ public class TableRenderBilerak extends JTextArea implements TableCellRenderer {
 
         // Ensure the text is updated for multi-line support
         setCaretPosition(0); // Reset caret position
+
+
+
         return this;
     }
 }

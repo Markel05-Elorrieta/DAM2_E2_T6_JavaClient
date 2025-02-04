@@ -9,6 +9,7 @@ import javax.swing.JTable;
 
 import model.Horarios;
 import model.Reuniones;
+import model.utilities.Utilities;
 
 public class TableUtils {
 	public void fillTable(JTable table, ArrayList<Horarios> horariosList) {
@@ -55,20 +56,19 @@ public class TableUtils {
 				String[] separado = reunionesList.get(i).getFecha().toString().split(" ");
 			
 				if (separado[0].equals(weekDates.get(j))) {
-			
 					if(table.getValueAt(parseHora(reunionesList.get(i).getFecha().getHours()), j) == "" || table.getValueAt(parseHora(reunionesList.get(i).getFecha().getHours()), j) == null || table.getValueAt(parseHora(reunionesList.get(i).getFecha().getHours()), j) == " ") {
 						table.setValueAt(reunionesList.get(i).getTitulo(), parseHora(reunionesList.get(i).getFecha().getHours()) , j );	
 					}else {
 						table.setValueAt(table.getValueAt(parseHora(reunionesList.get(i).getFecha().getHours()), j) + "\n" + reunionesList.get(i).getTitulo(), parseHora(reunionesList.get(i).getFecha().getHours()), j);
 					}
-				
 				}
+				
 			}
+			
 		}
 		adjustRowHeights(table);
-      
 	}
-	
+
 	public void adjustRowHeights(JTable table) {
 	    for (int row = 0; row < table.getRowCount(); row++) {
 	        int rowHeight = table.getRowHeight(row);
@@ -85,20 +85,18 @@ public class TableUtils {
 	private int parseHora (int hora) {
 		int horaNum = 0;
 		
-        if (hora == 8) {
+        if (hora == 9) {
         	horaNum = 0;
-		} else if (hora == 9) {
-			horaNum = 1;
 		} else if (hora == 10) {
-			horaNum = 2;
+			horaNum = 1;
 		} else if (hora == 11) {
-			horaNum = 3;
+			horaNum = 2;
 		} else if (hora == 12) {
-			horaNum = 4;
+			horaNum = 3;
 		} else if (hora == 13) {
-			horaNum = 5;
+			horaNum = 4;
 		}
-        
+
         return horaNum;		
 	 }
 	
