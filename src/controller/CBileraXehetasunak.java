@@ -1,5 +1,48 @@
 package controller;
 
-public class CBileraXehetasunak {
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
+import model.Ikastetxeak;
+import model.Reuniones;
+import model.modals.MBileraXehetasunak;
+import model.modals.MLogin;
+import view.VBileraXehetasunak;
+import view.VLogin;
+
+public class CBileraXehetasunak {
+	private VBileraXehetasunak vBileraXehetasunak;
+	private MBileraXehetasunak mBileraXehetasunak;
+	
+	Ikastetxeak ikas = new Ikastetxeak();
+
+	public CBileraXehetasunak(Reuniones r) {
+		mBileraXehetasunak = new MBileraXehetasunak();
+		
+		System.out.println(r);
+		
+		ikas = mBileraXehetasunak.getIkastetxeByCCEN(r);
+		
+		vBileraXehetasunak = new VBileraXehetasunak(r, ikas);
+		vBileraXehetasunak.setVisible(true);
+		
+		start();
+	}
+
+	private void start() {
+		setListeners();
+	}
+
+	private void setListeners() {
+		/*
+		JButton btnAtzera = vBileraXehetasunak.getBtnAtzera();
+
+		btnAtzera.addActionListener(e -> {
+			vBileraXehetasunak.dispose();
+			CBilerakKontsultatu cBilerakKontsultatu = new CBilerakKontsultatu();
+			
+		});
+		*/
+
+	}
 }

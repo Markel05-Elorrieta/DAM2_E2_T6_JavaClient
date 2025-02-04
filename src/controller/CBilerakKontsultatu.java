@@ -68,7 +68,8 @@ public class CBilerakKontsultatu {
 				int col = table.columnAtPoint(evt.getPoint());
 				if (row >= 0 && col >= 0) {
 					Reuniones r = reunioak.get(col).get(row);
-					
+					vBilerakKontsultatu.dispose();
+					CBileraXehetasunak cBileraXehetasunak = new CBileraXehetasunak(r);
 				}
 			}
 		});
