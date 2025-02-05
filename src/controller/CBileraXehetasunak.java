@@ -7,6 +7,7 @@ import model.Ikastetxeak;
 import model.Reuniones;
 import model.modals.MBileraXehetasunak;
 import model.modals.MLogin;
+import model.utilities.GlobalVariables;
 import view.VBileraXehetasunak;
 import view.VLogin;
 
@@ -34,15 +35,21 @@ public class CBileraXehetasunak {
 	}
 
 	private void setListeners() {
-		/*
+		
 		JButton btnAtzera = vBileraXehetasunak.getBtnAtzera();
+		JButton btnLogout = vBileraXehetasunak.getBtnLogout();
 
 		btnAtzera.addActionListener(e -> {
 			vBileraXehetasunak.dispose();
 			CBilerakKontsultatu cBilerakKontsultatu = new CBilerakKontsultatu();
-			
 		});
-		*/
+		
+		btnLogout.addActionListener(e -> {
+			vBileraXehetasunak.dispose();
+			GlobalVariables.loggedUser = null;
+			CLogin cLogin = new CLogin();
+		});
+		
 
 	}
 }

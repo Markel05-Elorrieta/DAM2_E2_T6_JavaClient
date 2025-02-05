@@ -88,7 +88,7 @@ public class VBileraXehetasunak extends JFrame{
 		lblData.setHorizontalAlignment(SwingConstants.CENTER);
 		lblData.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 18));
 		lblData.setText("Data: " + r.getFecha().toString());
-		lblData.setBounds(269, 177, 225, 34);
+		lblData.setBounds(223, 168, 332, 34);
 		contentPane.add(lblData);
 		
 		JLabel lblAula = new JLabel("");
@@ -102,19 +102,27 @@ public class VBileraXehetasunak extends JFrame{
 		lblIkastetxeaIzena.setHorizontalAlignment(SwingConstants.CENTER);
 		lblIkastetxeaIzena.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 18));
 		lblIkastetxeaIzena.setText("Ikastetxea: " + i.getNOM());
-		lblIkastetxeaIzena.setBounds(269, 342, 225, 34);
+		lblIkastetxeaIzena.setBounds(223, 342, 358, 34);
 		contentPane.add(lblIkastetxeaIzena);
 		
 		JLabel lblIkastetxeaEmail = new JLabel("");
 		lblIkastetxeaEmail.setHorizontalAlignment(SwingConstants.CENTER);
 		lblIkastetxeaEmail.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 18));
 		lblIkastetxeaEmail.setText("E-mail: " + i.getEMAIL());
-		lblIkastetxeaEmail.setBounds(269, 396, 225, 34);
+		lblIkastetxeaEmail.setBounds(177, 387, 399, 34);
 		contentPane.add(lblIkastetxeaEmail);
 		
 		Component horizontalStrut = Box.createHorizontalStrut(20);
 		horizontalStrut.setBounds(67, 319, 632, 12);
 		contentPane.add(horizontalStrut);
+	}
+	
+	public JButton getBtnAtzera() {
+		return btnAtzera;
+	}
+	
+	public JButton getBtnLogout() {
+		return btnLogout;
 	}
 }
 

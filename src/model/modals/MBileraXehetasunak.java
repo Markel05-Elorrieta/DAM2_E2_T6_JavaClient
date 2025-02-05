@@ -33,7 +33,9 @@ public class MBileraXehetasunak {
 			
 			pw.println("getIkastetxe/" + r.getIdCentro());
 						
-			Ikastetxeak response = (Ikastetxeak) ois.readObject();			
+			Ikastetxeak response = (Ikastetxeak) ois.readObject();		
+			
+			System.out.println(response);
 		
 			ois.close();
 			pw.close();
